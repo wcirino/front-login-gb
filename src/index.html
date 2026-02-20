@@ -1,13 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
   <meta charset="utf-8">
-  <title>LoginFront</title>
+  <title>SSA - Front</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
-<body>
-  <app-root></app-root>
+
+<body class="mat-typography" style="background-color: #f8f9fa; margin: 0;">
+
+  <header class="main-header d-flex align-items-center justify-content-center px-3">
+    <div class="logo-container position-absolute start-0 ps-3">
+      <img src="assets/img/ssa-logo2.png" alt="Logo SSA" />
+    </div>
+    <h4 class="mb-0 text-center w-100">Sistema de Login</h4>
+  </header>
+
+  <!-- Aqui vai seu conteúdo renderizado pelo Angular -->
+  <app-root>
+
+  </app-root>
+
+  <!-- Footer aparece logo depois do conteúdo -->
+  <footer class="bg-light text-center py-4 border-top" style="margin-top: 2rem;">
+    <div class="container">
+      <div class="mb-2 text-muted">
+        &copy; 2025 Login Corporation. Todos os direitos reservados.
+      </div>
+      <div class="mb-2">
+        <a href="#" class="text-decoration-none text-dark mx-2">Termos</a>
+        <a href="#" class="text-decoration-none text-dark mx-2">Privacidade</a>
+        <a href="#" class="text-decoration-none text-dark mx-2">Suporte</a>
+      </div>
+      <div>
+        <a href="#" class="text-dark mx-2"><i class="bi bi-instagram fs-5"></i></a>
+        <a href="#" class="text-dark mx-2"><i class="bi bi-facebook fs-5"></i></a>
+        <a href="#" class="text-dark mx-2"><i class="bi bi-twitter-x fs-5"></i></a>
+      </div>
+    </div>
+  </footer>
+
 </body>
+
 </html>

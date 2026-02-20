@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap';
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Isso aqui é só se você tiver uma <main> no componente
+main {
+  flex: 1;
+}
+
+.main-header {
+  height: 60px;
+  background-color: #3498db;
+  color: white;
+  position: relative;
+
+  h4 {
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    line-height: 60px; // alinhamento vertical
+  }
+
+  .logo-container img {
+    height: 40px;
+    margin-top: 5px; // dá uma distância do topo
+  }
+
+  .footer-link {
+  color: #0d6efd !important; // azul padrão Bootstrap
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: #0a58ca; // azul mais escuro no hover
+  }
+}
+
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
