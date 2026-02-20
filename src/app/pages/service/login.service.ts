@@ -15,7 +15,7 @@ import { RecoverUsernameResponse } from './model/recover-username-response.dto';
 })
 export class LoginService {
 
-  private readonly API = `${environment.apiUrl}/auth`;
+  private readonly API = `${environment.api_url}/auth`;
 
   constructor(private http: HttpClient) { }
 
