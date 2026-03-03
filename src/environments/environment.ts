@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   envName: 'PADRAO',
-  api_url: 'http://localhost:8081' // Porta padrão do seu Nest
+  api_url: 'http://localhost:8081', // Porta padrão do seu Nest
+  api_port_url: 'http://localhost:4200',
 };
 /*
  * For easier debugging in development mode, you can import the following file
