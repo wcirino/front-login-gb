@@ -78,6 +78,20 @@
               "sourceMap": false,
               "namedChunks": false
             },
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ],
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -100,6 +114,9 @@
             },
             "docker": {
               "browserTarget": "login-front:build:docker"
+            },
+            "local": {
+              "browserTarget": "login-front:build:local"
             },
             "development": {
               "browserTarget": "login-front:build:development"

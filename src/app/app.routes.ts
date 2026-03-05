@@ -3,12 +3,16 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { RecuperarAcessoComponent } from './pages/recuperar-acesso/recuperar-acesso.component';
 import { RecuperarLoginComponent } from './pages/recuperar-login/recuperar-login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AuthGuard } from './guards/auth.guard';
 //import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'recuperar-acesso', component: RecuperarAcessoComponent },
   { path: 'recuperar-login', component: RecuperarLoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   //{ path: 'logado', component: WelcomeComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

@@ -10,11 +10,16 @@ import { LoginResponse } from './model/login-response.dto';
 import { RetornoLogin } from './model/retorno-login.dto';
 import { RecoverUsernameResponse } from './model/recover-username-response.dto';
 
+import { AcessosResponse } from './model/acessos-response.dto';
+import { ValidacaoAcessoDTO } from './model/validacao-acesso.dto';
+import { firstValueFrom } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
   private readonly API = `${environment.api_url}/auth`;
+  private readonly API_ACESSOS = `${environment.api_url}/acessos`;
 
   constructor(private http: HttpClient) {}
 
@@ -57,6 +62,22 @@ export class LoginService {
       .post<any>(`${this.API}/session/authenticate`, request, {
         withCredentials: true,
       })
+      .pipe(catchError(this.handleError));
+  }
+
+  getSistemasHome(username: string): Observable<AcessosResponse> {
+    return this.http
+      .get<AcessosResponse>(`${this.API_ACESSOS}/${username}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  validarPermissao(username: string, url: string): Observable<ValidacaoAcessoDTO> {
+    const params = new HttpParams()
+      .set('username', username)
+      .set('url', url);
+
+    return this.http
+      .get<ValidacaoAcessoDTO>(`${this.API_ACESSOS}/validar-permissao`, { params })
       .pipe(catchError(this.handleError));
   }
 

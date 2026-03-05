@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UtilService } from './pages/service/util.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'login-front';
+  isLogged$ = this.utilService.isLogged;
+
+  constructor(private utilService: UtilService) {}
+
+  onLogout() {
+    this.utilService.logout();
+  }
 }

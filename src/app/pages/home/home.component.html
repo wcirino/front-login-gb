@@ -1,0 +1,18 @@
+<div class="home-container">
+  <h1>Bem-vindo, {{ username }}!</h1>
+  <p>Selecione o sistema que deseja acessar:</p>
+
+  <div class="apps-grid">
+    <div class="app-card" *ngFor="let sistema of sistemas" (click)="irParaSistema(sistema.url)">
+      <div class="icon">
+        <mat-icon>{{ sistema.icone }}</mat-icon>
+      </div>
+      <h3>{{ sistema.nome }}</h3>
+      <p>Clique para acessar o portal {{ sistema.nome }}.</p>
+    </div>
+
+    <div *ngIf="sistemas.length === 0" class="no-systems">
+      <p>Você ainda não possui sistemas vinculados ao seu perfil.</p>
+    </div>
+  </div>
+</div>

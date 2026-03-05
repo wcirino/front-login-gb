@@ -1,3 +1,36 @@
-<main class="main">
+<header class="main-header d-flex align-items-center justify-content-between px-3">
+  <div class="logo-container ps-3">
+    <img src="assets/img/ssa-logo2.png" alt="Logo SSA" style="height: 40px;" />
+  </div>
+
+  <h4 class="mb-0 text-center flex-grow-1">Sistema de Login</h4>
+
+  <div *ngIf="isLogged$ | async" class="pe-3">
+    <button mat-button color="white" (click)="onLogout()" class="d-flex align-items-center logout-btn">
+      <mat-icon>logout</mat-icon>
+      <span class="ms-1">Sair</span>
+    </button>
+  </div>
+</header>
+
+<main style="min-height: 70vh; padding-top: 20px;">
   <router-outlet></router-outlet>
 </main>
+
+<footer class="bg-light text-center py-4 border-top" style="margin-top: 2rem;">
+  <div class="container">
+    <div class="mb-2 text-muted">
+      &copy; 2025 Login Corporation. Todos os direitos reservados.
+    </div>
+    <div class="mb-2">
+      <a href="#" class="text-decoration-none text-dark mx-2">Termos</a>
+      <a href="#" class="text-decoration-none text-dark mx-2">Privacidade</a>
+      <a href="#" class="text-decoration-none text-dark mx-2">Suporte</a>
+    </div>
+    <div class="social-links">
+      <a href="#" class="text-dark mx-2"><i class="bi bi-instagram fs-5"></i></a>
+      <a href="#" class="text-dark mx-2"><i class="bi bi-facebook fs-5"></i></a>
+      <a href="#" class="text-dark mx-2"><i class="bi bi-twitter-x fs-5"></i></a>
+    </div>
+  </div>
+</footer>

@@ -9,18 +9,23 @@ import { RecuperarLoginComponent } from './pages/recuperar-login/recuperar-login
 import { routes } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { HomeComponent } from './pages/home/home.component';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RecuperarAcessoComponent,
-    RecuperarLoginComponent
+    RecuperarLoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +35,12 @@ import { MatButtonModule } from '@angular/material/button';
     RouterModule.forRoot(routes),
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

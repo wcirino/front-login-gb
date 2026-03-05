@@ -5,7 +5,7 @@ FROM node:18-alpine AS build
 
 WORKDIR /app
 
-# Argumento para escolher o ambiente (ex: docker)
+# Argumento para escolher o ambiente (ex: docker ou local)
 ARG BUILD_ENV=docker
 
 COPY package*.json ./
@@ -13,7 +13,7 @@ RUN npm install
 
 COPY . .
 
-# Aqui ele gera a pasta 'dist/login-front' dentro do container
+# Gera a pasta 'dist/login-front' conforme seu angular.json
 RUN npx ng build --configuration=$BUILD_ENV
 
 # =========================
@@ -21,7 +21,10 @@ RUN npx ng build --configuration=$BUILD_ENV
 # =========================
 FROM nginx:alpine
 
-# AJUSTADO: O nome no seu angular.json é 'login-front', não 'front-login'
+# O PULO DO GATO: Copia sua config que tem o 'try_files' para matar o 404
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copia os arquivos compilados do estágio de build
 COPY --from=build /app/dist/login-front /usr/share/nginx/html
 
 EXPOSE 80
